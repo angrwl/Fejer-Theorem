@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fej&eacute;r's Theorem</title>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Raleway:100,200,600,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style_fejer.css">
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+</head>
+
+  <body>
+  
+  <nav class="navigation">
+    <ul>
+      <li><a href = "#definitions">Key Definitions</a></li>  
+      <li><a href = "#main">Fej&eacute;r's Theorem for Fourier Series</a></li>
+      <li><a href = '#consequences'>Consequences</a></li>
+      <li><a href = '#lemmas'>Lemma's and Propositions</a></li>
+      <li class="logo"><a ><strong>Proof of Main Result</strong></a></li>
+      <li><a>Example</a></li>
+      <li><a>References</a></li>
+      <li class="author"><a>Author</a></li>
+    </ul>
+  </nav>
+
+<!--http://backgroundcheckall.com/maths-background-10/-->
+
+<div id="banner">
+    <div class="content">
+      <h1 class='heading'>Proof of <em>F&eacute;jer Theorem</em> for Fourier Series and its consequences</h1>
+    </div>
+  </div>
+
+  <br>
+
+  <div id = 'definitions'>
+      <h1 class="subhead">Key Definitions</h1>
+      <p>Let $f$ be a locally integrable, $2\pi$-periodic function over $\mathbb{R}$:
+          <ul>
+              <li><strong>Uniform Convergence :</strong>  We say that a sequence of functions $\{f_n(x)\}_{n \in\mathbb{N}}$ converges uniformly to $f$ on $[-\pi,\pi]$ if $$\lim_{n\to \infty}\left( \sup_{x\in [-\pi,\pi]}|f_{n}(x)-f(x)|\right)=0.$$</li>
+              <li><strong>Fourier Coefficient $\hat{f}_k$ :</strong> Corresponding to a given integer $k$, this is a number given by
+                    $$\hat{f}_k=\frac{1}{2\pi}\int_0^{2\pi}e^{-ikt}f(t)\text{dt}$$.</li>
+              <li> <strong>Fourier Series $N$-th Partial Sum :</strong> Given a natural number $N\geq 0$ and $x$ in the interval $[-\pi,\pi]$, this is the finite sum  $$S_N(x)=\sum_{k=-N}^{N} \hat{f}_k e^{ikx}$$.</li>
+              <li><strong>$n$-th Ces&aacute;ro average :</strong> For any non-negative integer $n$, this is the average of the first $n+1$ partial sums $\{S_N(x)\}_{N=0}^{n}$. We denote it by $$\sigma_n(x)=\frac{1}{n+1}\sum_{N=0}^nS_N(x)$$.</li>
+          </ul>
+      </p>
+  </div>
+
+  <div id="main" class="content">
+    <h1 class="subhead">Fej&eacute;r's Theorem</h1>
+    <p class = 'theorem'>
+        If $f:[-\pi,\pi] \to \mathbb{C}$ is continuous at $x\in [-\pi,\pi]$
+        and $f$ is Riemann integrable, then:
+        $$ \sigma_n(x) \text{ converges to } f(x) \ \text{as} \  n \to \infty.$$
+        Furthermore, if $f$ is continuous, then: $$ \sigma_n \text{ converges to } f \ \text{uniformly on} \ [-\pi,\pi].$$    
+    </p>
+    <p>The first part of the theorem gives conditions which ensure that the sequence of Ces&aacute;ro averages give good approximations of the value of the function $f$ wherever it is continuous. The final result of the theorem follows quite naturally if $f$ is continuous everywhere on its domain.</p>
+    <br>
+  </div>  
+  
+  <div id="consequences">
+    <h1 class="subhead">Consequences</h1>
+    <p>While Fej&eacute;r's theorem has uses in advanced topics, such as Functional Analysis (see [4]), here three relatively elementary consequences are shared:
+        <ul>
+            <li>If $f:[-\pi,\pi] \to \mathbb{C}$ is continuous, then there exists a sequence of trigonometric polynomials which converge uniformly to $f$ on $[-\pi,\pi].$ An example of a sequence of trigonometric\\ polynomials would be $\{S_N(x)\}_{N=0}^{\infty}$.</li>
+            <li>If $f,g:[-\pi,\pi] \to \mathbb{C}$ are continuous and $$\int_0^{2\pi}e^{-ikt}f(t)dt=\int_0^{2\pi}e^{-ikt}g(t)dt$$ for all $k \in \mathbb{Z}$, then $f\equiv g$. In other words, any two continuous functions which have identical Fourier coefficients, describe the same function.</li>  
+            <li>Fej\'er's theorem can be used to derive \emph{Weierstrass' approximation theorem} for continuous functions on $[-\pi,\pi]$, which states that there exists a sequence of polynomials which converge uniformly to $f$.</li>
+        </ul>
+    </p>
+  </div>
+
+  <br>
+
+  <div id = 'lemmas'>
+    <h1 class = 'subhead'>Lemma's and Propositions</h1>
+    <p>Before we can begin proving the Main Theorem, we need to state some important Lemma's and Propositions:
+    </p>
+    <br>
+    <h3>1. Identity of Ces&aacute;ro average $\sigma_N(x)$</h3>
+    <p id = 'semi_results'>For all $N \in \mathbb{Z}_{\geq 0}$ and $x \in \mathbb{T}$, $$\sigma_N(x)=\frac{1}{2\pi}\int_{\mathbb{T}} f(x-y)K_N(y)dy$$ where $$K_N(s)=\sum_{n=-N}^{N}\left(\frac{N+1-|n|}{N+1}\right)e^{ins}$$ is called the Fej&eacute;r kernel.</p>
+    <p>Proof of this proposition can be found <a class = 'link' href =''>here</a></p>
+    <br>
+    <h3>2. Explicit Form of Fej&eacute;r </h3>
+    <p id = 'semi_results'>For any $s\neq 0$ and $N \in \mathbb{Z}_{\geq 0}$, $$K_N(s)=\frac{1}{N+1}\left(\frac{\sin{\frac{(N+1)s}{2}}}{\sin{\frac{s}{2}}}\right)^2$$
+        and $$K_N(0)=N+1.$$</p>
+    <p>Proof of this proposition can be found <a class = 'link' href =''>here</a></p>
+    <br>
+    <h3>3. Dirichlet Kernel Identity (Proved in Analysis 4)</h3>
+    <p id = 'semi_results'>For any $n \in {\mathbb{Z}}_{\geq 0}$
+        $$D_n(s)=\frac{\sin[(n+\frac{1}{2})s]}{\sin\frac{s}{2}}$$
+        if $s\neq 0$,
+        $$D_n(0)=2n+1.$$</p>
+    <p>Proof of this proposition is trivial</p>
+  </div>
+
+    
+  
